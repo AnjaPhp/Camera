@@ -41,13 +41,12 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(i, REQUEST_IMAGE_CAPTURE);
     }
 
-    //If you want to return the image taken
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {  //Check if took an image and if we had errors
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             //Get the photo
             Bundle extras = data.getExtras();
-            Bitmap photo = (Bitmap) extras.get("data"); //returning the photo information and we're converting it to a bitmap
+            Bitmap photo = (Bitmap) extras.get("data"); //converting it to a bitmap
             photoView.setImageBitmap(photo);
         }
     }
